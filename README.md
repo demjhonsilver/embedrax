@@ -58,7 +58,7 @@ Frameworks / Libraries | Tested versions
 -----
 
 ## Release-notes
-Version 1.0.0-alpha.1
+Version 1.0.0
 
 
 ## Features
