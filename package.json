@@ -1,0 +1,30 @@
+{
+  "name": "embedrax",
+  "version": "1.0.0-alpha.2",
+  "description": "A simple embed package for React, Vue, Angular, and Svelte which can embed from platforms like Facebook, TikTok, YouTube/Shorts, Twitter/X, Vimeo and Dailymotion.",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "keywords": [
+    "embed",
+    "video",
+    "embed video",
+    "facebook",
+    "youtube",
+    "vimeo",
+    "tiktok",
+    "dailymotion",
+    "twitter",
+    "shorts",
+    "javascript",
+    "typescript",
+    "react",
+    "vue",
+    "angular",
+    "svelte"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Demjhon Silver",
+  "license": "MIT"
+}
