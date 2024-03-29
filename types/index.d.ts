@@ -1,4 +1,4 @@
-// types/index.d.ts
+// dist/index.d.ts
 
 declare module 'embedrax' {
     // TypeScript type definitions for embedrax module

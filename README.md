@@ -68,6 +68,10 @@ Minor Changes:
 
 
 Patch Changes:
+
+ v1.0.2
+ - Fixed the alignment of the file resources.
+
  v1.0.1
  - Reminder
  - Make sure your default `index.css` or `app.css` are not conflict, if you notice your css videos are not working properly.
@@ -215,10 +219,13 @@ export const ExampleComponent: React.FC = () => {
       videoClass: 'embed-tiktok',
     },
     {
-      width: 300,
-      height: 600,
-      videoUrl: '',
-      videoClass: 'embed-twitter',
+        width: 640,
+        height: 360,
+        autoplay: false,
+        fullscreen: true,
+        controls: true,
+        videoUrl: 'https://www.youtube.com/watch?v=oEXFMGK7IC0',
+        videoClass: 'embed-youtube-one-clip' 
     },
   ];
 
@@ -229,7 +236,7 @@ export const ExampleComponent: React.FC = () => {
   return (
     <>
       <div className="embed-tiktok"></div>
-      <div className="embed-twitter"></div>
+      <div className="embed-youtube-one-clip"></div>
     </>
   );
 };
@@ -299,10 +306,13 @@ export default {
       videoClass: 'embed-tiktok' 
     },
     {
-      width: 300,
-      height: 600,
-      videoUrl: '',
-      videoClass: 'embed-twitter'
+        width: 640,
+        height: 360,
+        autoplay: false,
+        fullscreen: true,
+        controls: true,
+        videoUrl: 'https://www.youtube.com/watch?v=oEXFMGK7IC0',
+        videoClass: 'embed-youtube-one-clip' 
     },
   ];
 
@@ -313,7 +323,7 @@ export default {
 
 <div>
   <div class="embed-tiktok"></div>
-  <div class="embed-twitter"></div>
+  <div class="embed-youtube-one-clip"></div>
 </div>
 ```
 
@@ -352,7 +362,7 @@ export default {
 <template>
   <div>
     <div class="embed-tiktok"></div>
-    <div class="embed-twitter"></div>
+    <div class="embed-youtube-one-clip"></div>
   </div>
 </template>
 
@@ -366,10 +376,13 @@ const videos = <VideoConfig[]>([
     videoClass: 'embed-tiktok'
   },
   {
-    width: 300,
-    height: 600,
-    videoUrl: '',
-    videoClass: 'embed-twitter'
+        width: 640,
+        height: 360,
+        autoplay: false,
+        fullscreen: true,
+        controls: true,
+        videoUrl: 'https://www.youtube.com/watch?v=oEXFMGK7IC0',
+        videoClass: 'embed-youtube-one-clip' 
   },
 ]);
 
