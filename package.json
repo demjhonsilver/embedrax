@@ -1,9 +1,14 @@
 {
   "name": "embedrax",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple embed package for React, Vue, Angular, and Svelte which can embed from platforms like Facebook, TikTok, YouTube/Shorts, Twitter/X, Vimeo and Dailymotion.",
   "main": "index.js",
+  "type": "module",
   "types": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/demjhonsilver/embedrax.git"
+  },
   "keywords": [
     "embed",
     "video",

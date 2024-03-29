@@ -9,8 +9,8 @@
 [![npm version](https://img.shields.io/npm/v/embedrax.svg?logo=npm&style=flat-square&label=Latest&color=blue)](https://www.npmjs.com/package/embedrax)
 ![Written](https://img.shields.io/badge/JavaScript-blue?logo=javascript&label=Supports&style=flat-square&color=FDDA0D)
 ![Written](https://img.shields.io/badge/TypeScript-blue?logo=typescript&label=Supports&style=flat-square&color=blue)
-![Downloads](https://img.shields.io/npm/dt/embedrax.svg?style=flat-square&label=DOWNLOADS&color=brightgreen)
-[![License](https://img.shields.io/npm/l/embedrax.svg?style=flat-square&label=LICENSE&color=green)](https://github.com/demjhonsilver/embedrax/blob/main/LICENSE.md)
+![Downloads](https://img.shields.io/npm/dt/embedrax.svg?style=flat-square&label=Downloads&color=brightgreen)
+[![License](https://img.shields.io/npm/l/embedrax.svg?style=flat-square&label=License&color=green)](https://github.com/demjhonsilver/embedrax/blob/main/LICENSE.md)
 
 
 
@@ -58,7 +58,26 @@ Frameworks / Libraries | Tested versions
 -----
 
 ## Release-notes
-Version 1.0.0
+
+
+Major Changes:
+ v1.0.0
+
+
+Minor Changes:
+
+
+Patch Changes:
+ v1.0.1
+ - Reminder
+ - Make sure your default `index.css` or `app.css` are not conflict, if you notice your css videos are not working properly.
+
+---
+Try to clear your existing css like `index.css` or `app.css` affected in React, Vue, Svelte and Angular. 
+See if it's working now.
+Then RESTORE the original `index.css` or `app.css` codes.
+
+-------
 
 
 ## Features
@@ -112,6 +131,7 @@ Recommended web browser for local test:
 Reminder:
 
 - Don't forget to restart your server.
+
 
 ------------
 ## React
@@ -372,6 +392,9 @@ interface VideoConfig {
 
 
 ## Angular 
+
+example.component.ts
+
 ```ts
 import { Component, AfterViewInit } from '@angular/core';
 import { embed } from 'embedrax';
@@ -419,6 +442,15 @@ For Angular css:
 ```
 
 ## Embed-css
+
+Make sure your default `index.css` or `app.css` are not conflict, if you notice your css videos are not working properly.
+
+---
+Try to clear your existing css like `index.css` or `app.css` affected in React, Vue, Svelte and Angular. 
+See if it's working now.
+Then RESTORE the original `index.css` or `app.css` codes.
+
+
 
 You can add your own css set-up: <!-- You can rename, change color, resize, positioning etc. -->
 
