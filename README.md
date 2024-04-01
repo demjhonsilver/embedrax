@@ -69,6 +69,9 @@ Minor Changes:
 
 Patch Changes:
 
+ v1.0.3
+ - The index.js will restore default location
+
  v1.0.2
  - Fixed the alignment of the file resources.
 
