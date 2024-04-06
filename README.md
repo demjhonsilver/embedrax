@@ -30,7 +30,6 @@
 - [Release Notes](#release-notes)
 - [Features](#features)
 - [Installation](#installation)
-- [Supported Sites](#supported-sites)
 - [Embed Video](#embed-video)
 - [React](#react)
 - [React TypeScript](#react-typescript)
@@ -45,7 +44,7 @@
 
 ## Description
 
-Embedrax is an embed package for React, Vue, Angular, and Svelte which can embed from platforms like Facebook, TikTok, YouTube/Shorts, Twitter/X, Vimeo and Dailymotion.
+Embedrax is an embed package for React, Vue, Angular, and Svelte which can embed from platforms like Facebook, Instagram, TikTok, YouTube/Shorts, Twitter/X, Vimeo and Dailymotion.
 
 
 Frameworks / Libraries | Tested versions
@@ -66,11 +65,14 @@ Major Changes:
 
 Minor Changes:
 
+ v1.1.0
+ - Added support for embedding Instagram clips.
+ - Either video reels or video clips for Instagram.
 
 Patch Changes:
 
  v1.0.3
- - The index.js will restore default location
+ - The index.js will restore default location.
 
  v1.0.2
  - Fixed the alignment of the file resources.
@@ -90,7 +92,7 @@ Then RESTORE the original `index.css` or `app.css` codes.
 ## Features
 
 - Easy to use and responsive.
-- Capable of embedding one or many videos from platforms like Facebook, TikTok, YouTube, YouTube Shorts, Twitter/X, Dailymotion and Vimeo.
+- Capable of embedding one or many videos from platforms like Facebook, Instagram, TikTok, YouTube, YouTube Shorts, Twitter/X, Dailymotion and Vimeo.
 
 -------------
 ## Installation
@@ -101,30 +103,35 @@ To install the Embedrax, you can use the following npm command:
 npm install embedrax
 ```
 
-## Supported-sites
 
-![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white) 
-![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white) 
-![X](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white)
-![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) 
-![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?style=for-the-badge&logo=TikTok&logoColor=white) 
-![Vimeo](https://camo.githubusercontent.com/2026999d43e099c9c835757e3d2f5f8c574efad153f4e3d5143914223e9cbc24/68747470733a2f2f613131796261646765732e636f6d2f62616467653f6c6f676f3d76696d656f) 
-![Dailymotion](https://a11ybadges.com/badge?logo=dailymotion)
 --------
 
 ## Embed-video
-
-Attributes |  Functionality | Type | Required | 
------- | -------- | -------- | ----------
-`width` | dynamic width | number | optional
-`height` |  dynamic height | number |optional
-`fullscreen` |  enable fullscreen | boolean | optional
-`controls` | enable controllers | boolean | optional
-`autoplay` | enable autoplay | boolean | optional
-`loop` | enable loop | boolean | optional
-`videoClass` | set any classname | string | yes
-`videoUrl` | video address, url/links | string | yes 
+Attributes | Type | ![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white) | ![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white) | ![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?style=for-the-badge&logo=TikTok&logoColor=white)  | ![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white) ![X](https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white) |
+------ | -------- | -------- | ----------|---------- |------------
+`width` | number |  optional | |  | 
+`height` |  number | optional |  |  | 
+`fullscreen` | boolean | optional |  |  |  
+`controls` | boolean | |  |  |  
+`autoplay` | boolean | |  |  |   
+`videoClass` | string | required | required | required | required
+`videoUrl` | string | required | required | required | required
 ---------
+
+-------------------
+
+
+Attributes | Type | ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white) | ![Vimeo](https://a11ybadges.com/badge?logo=vimeo) | ![Dailymotion](https://a11ybadges.com/badge?logo=dailymotion) |
+------ | -------- | -------- | ----------|----------
+`width` | number | optional | optional | optional
+`height` |  number | optional | optional | optional
+`fullscreen` | boolean | optional |  | 
+`controls` | boolean | optional | optional | 
+`autoplay` | boolean | optional | optional |
+`videoClass` | string | required | required | required
+`videoUrl` | string | required | required | required
+---------
+
 
 
 Use Google chrome as much as possible to load more videos properly.

@@ -4,7 +4,7 @@
   
   MIT License
   
-  Copyright (c) [2024-present] [Demjhon Silver]
+  Copyright (c) [2024] [Demjhon Silver]
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -28,6 +28,64 @@
   
   let videoCount = 1; // Initialize videoCount
   
+
+  const embedInstagram = (video, container, videoClass, videoCount) => {
+    const videoUrl = video.videoUrl;
+  
+    // Extract the video ID from the URL
+    const videoId = extractInstagramVideoId(videoUrl);
+    if (!videoId) {
+      throw new Error('Invalid Instagram video URL');
+    }
+  
+    // Define maxwidth and maxheight based on the video object's properties
+    const maxwidth = video.width || 640; // Default width if not provided
+    const maxheight = video.height || 360; // Default height if not provided
+  
+    // Check if autoplay should be enabled (true by default)
+    const autoplayEnabled = video.autoplay !== undefined ? video.autoplay : true;
+  
+    // Check if the container element exists, create it if it doesn't
+    let embedContainer = document.getElementById(container);
+    if (!embedContainer) {
+      embedContainer = document.createElement('div');
+      embedContainer.id = container;
+      document.body.appendChild(embedContainer);
+    }
+  
+    const playerDiv = document.createElement("div");
+    playerDiv.className = `video-${videoCount} ${videoClass}`;
+  
+    // Check if embed script already exists
+    if (!document.getElementById('instagramEmbedScript')) {
+      const blockquote = document.createElement('blockquote');
+      blockquote.setAttribute('class', 'instagram-media');
+      blockquote.setAttribute('data-instgrm-permalink', `https://www.instagram.com/p/${videoId}/`); // Update with the extracted video ID
+      blockquote.setAttribute('data-instgrm-version', '13');
+  
+      const anchor = document.createElement('a');
+      anchor.setAttribute('href', videoUrl);
+      blockquote.appendChild(anchor);
+  
+      embedContainer.appendChild(blockquote);
+  
+      const script = document.createElement('script');
+      script.setAttribute('async', '');
+      script.setAttribute('id', 'instagramEmbedScript'); // Set ID for future reference
+      script.setAttribute('src', '//www.instagram.com/embed.js');
+      embedContainer.appendChild(script);
+    }
+  };
+  
+  // Regular expression to extract Instagram video ID from URL
+  const extractInstagramVideoId = (url) => {
+    const regex = /\/([a-zA-Z0-9_-]+)\/?$/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  };
+  
+  
+
 
   const embedDailymotion = (video, container, videoClass) => {
     const videoUrl = video.videoUrl;
@@ -470,6 +528,9 @@
       }
       else if (video.videoUrl.includes("dailymotion.com") || video.videoUrl.includes("dailymotion")) {
       embedDailymotion(video, container, videoClass);
+      }
+      else if (video.videoUrl.includes("instagram.com") || video.videoUrl.includes("instagram")) {
+      embedInstagram(video, container, videoClass);
       }
       else {
         throw new Error("Invalid video URL");
