@@ -31,6 +31,7 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Embed Video](#embed-video)
+- [Width](#width)
 - [React](#react)
 - [React TypeScript](#react-typescript)
 - [Vue](#vue)
@@ -71,6 +72,10 @@ Minor Changes:
 
 Patch Changes:
 
+
+ v1.1.1
+ - Add a clear sample to set the value of the [Width](#width).
+
  v1.0.3
  - The index.js will restore default location.
 
@@ -83,7 +88,7 @@ Patch Changes:
 
 ---
 Try to clear your existing css like `index.css` or `app.css` affected in React, Vue, Svelte and Angular. 
-See if it's working now.
+See if it's working.
 Then RESTORE the original `index.css` or `app.css` codes.
 
 -------
@@ -133,6 +138,18 @@ Attributes | Type | ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.sv
 ---------
 
 
+## Width
+
+You can copy and paste the following HD dimensions below:
+---------------
+
+Value | Width and Height in the Component file | Width only from the classname CSS file
+------- | ------------ | -------------------------
+1280x720 | width: 1280, height: 720, | `.embed-youtube-one-clip { max-width: 1280px;}`
+854x480 | width: 854, height: 480, | `.embed-youtube-one-clip { max-width: 854px;}`
+640x360 | width: 640, height: 360,| `.embed-youtube-one-clip { max-width: 640px;}`
+426x240 | width: 426, height: 240, | `.embed-youtube-one-clip { max-width: 426px;}`
+256x144 | width: 256, height: 144, | `.embed-youtube-one-clip { max-width: 256px;}`
 
 Use Google chrome as much as possible to load more videos properly.
 
@@ -157,8 +174,8 @@ export const ExampleComponent = () => {
   useEffect(() => {
     embed([
       {
-        width: 640,
-        height: 360,
+        width: 854,
+        height: 480,
         autoplay: true,
         fullscreen: false,
         controls: true,
@@ -185,8 +202,8 @@ const ExampleComponent = () => {
   useEffect(() => {
     embed([
       {
-        width: 640,
-        height: 360,
+        width: 854,
+        height: 480,
         autoplay: true,
         fullscreen: false,
         controls: true,
@@ -229,8 +246,8 @@ export const ExampleComponent: React.FC = () => {
       videoClass: 'embed-tiktok',
     },
     {
-        width: 640,
-        height: 360,
+        width: 854,
+        height: 480,
         autoplay: false,
         fullscreen: true,
         controls: true,
@@ -276,8 +293,8 @@ export default {
     onMounted(() => {
       embed([
         {
-          width: 640,
-          height: 360,
+          width: 854,
+          height: 480,
           autoplay: true,
           fullscreen: false,
           controls: true,
@@ -316,8 +333,8 @@ export default {
       videoClass: 'embed-tiktok' 
     },
     {
-        width: 640,
-        height: 360,
+        width: 854,
+        height: 480,
         autoplay: false,
         fullscreen: true,
         controls: true,
@@ -349,8 +366,8 @@ export default {
   onMount(() => {
     embed([
       {
-        width: 640,
-        height: 360,
+        width: 854,
+        height: 480,
         autoplay: true,
         fullscreen: false,
         controls: true,
@@ -386,8 +403,8 @@ const videos = <VideoConfig[]>([
     videoClass: 'embed-tiktok'
   },
   {
-        width: 640,
-        height: 360,
+        width: 854,
+        height: 480,
         autoplay: false,
         fullscreen: true,
         controls: true,
@@ -434,8 +451,8 @@ export class ExampleComponent implements AfterViewInit {
   ngAfterViewInit() {
     embed([
       {
-          width: 640,
-          height: 360,
+          width: 854,
+          height: 480,
           autoplay: true,
           fullscreen: false,
           controls: true,
@@ -459,7 +476,7 @@ For Angular css:
   align-items: center; /* Center vertically */
   border: 2px solid orange;
   width: 100%;
-  max-width: 640px;
+  max-width: 854px;
   margin: auto; /* Center the entire container horizontally */
 }
 ```
@@ -470,7 +487,7 @@ Make sure your default `index.css` or `app.css` are not conflict, if you notice 
 
 ---
 Try to clear your existing css like `index.css` or `app.css` affected in React, Vue, Svelte and Angular. 
-See if it's working now.
+See if it's working.
 Then RESTORE the original `index.css` or `app.css` codes.
 
 
@@ -487,7 +504,7 @@ This is sample only, you can rename, recreate, and do something:
   align-items: center; 
   border: 2px solid orange;
   width: 100%;
-  max-width: 640px;
+  max-width: 854px;
   margin: auto; 
 }
 ```
