@@ -7,9 +7,8 @@
 # Embedrax 
 
 [![npm version](https://img.shields.io/npm/v/embedrax.svg?logo=npm&style=flat-square&label=Latest&color=blue)](https://www.npmjs.com/package/embedrax)
-![Written](https://img.shields.io/badge/JavaScript-blue?logo=javascript&label=Supports&style=flat-square&color=FDDA0D)
-![Written](https://img.shields.io/badge/TypeScript-blue?logo=typescript&label=Supports&style=flat-square&color=blue)
-![Downloads](https://img.shields.io/npm/dt/embedrax.svg?style=flat-square&label=Downloads&color=brightgreen)
+![Package Size](https://img.shields.io/bundlephobia/minzip/embedrax?style=flat-square&color=darkgreen)
+![Downloads](https://img.shields.io/npm/dt/embedrax.svg?style=flat-square&label=Downloads&color=orange)
 [![License](https://img.shields.io/npm/l/embedrax.svg?style=flat-square&label=License&color=green)](https://github.com/demjhonsilver/embedrax/blob/main/LICENSE.md)
 
 
@@ -62,6 +61,8 @@ Frameworks / Libraries | Tested versions
 
 Major Changes:
  v1.0.0
+ - This library package is FREE.
+ - Lightweight size 
 
 
 Minor Changes:
@@ -72,6 +73,8 @@ Minor Changes:
 
 Patch Changes:
 
+ v1.1.2
+ - Fixed the autoplay feature for dailymotion.
 
  v1.1.1
  - Add a clear sample to set the value of the [Width](#width).
@@ -98,7 +101,9 @@ Then RESTORE the original `index.css` or `app.css` codes.
 
 - Easy to use and responsive.
 - Capable of embedding one or many videos from platforms like Facebook, Instagram, TikTok, YouTube, YouTube Shorts, Twitter/X, Dailymotion and Vimeo.
-
+ - This library package is FREE.
+ - Lightweight size 
+ - Supports both TypeScript and JavaScript.
 -------------
 ## Installation
 
@@ -130,9 +135,9 @@ Attributes | Type | ![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.sv
 ------ | -------- | -------- | ----------|----------
 `width` | number | optional | optional | optional
 `height` |  number | optional | optional | optional
-`fullscreen` | boolean | optional |  | 
-`controls` | boolean | optional | optional | 
-`autoplay` | boolean | optional | optional |
+`fullscreen` | boolean | optional | optional | optional
+`controls` | boolean | optional | optional | optional
+`autoplay` | boolean | optional | optional |optional
 `videoClass` | string | required | required | required
 `videoUrl` | string | required | required | required
 ---------
@@ -483,6 +488,15 @@ For Angular css:
 
 ## Embed-css
 
+
+
+<p align="center">
+
+  <img src="https://raw.githubusercontent.com/demjhonsilver/embedrax/main/img/sample.png"/>
+
+</p>
+
+
 Make sure your default `index.css` or `app.css` are not conflict, if you notice your css videos are not working properly.
 
 ---
@@ -636,7 +650,7 @@ CSS for Angular:
 
 [MIT](http://www.opensource.org/licenses/MIT)
 
-
+- This library package is FREE. ❤️
 ----------------------------------------------------
 ## Author
 

@@ -86,62 +86,32 @@
   
   
 
-
-  const embedDailymotion = (video, container, videoClass) => {
-    const videoUrl = video.videoUrl;
-  
-    // Define maxwidth and maxheight based on the video object's properties
-    const maxwidth = video.width || 640; // Default width if not provided
-    const maxheight = video.height || 360; // Default height if not provided
-  
-    // Check if autoplay should be enabled (true by default)
-    const autoplayEnabled = video.autoplay !== undefined ? video.autoplay : true;
-  
-    // Create a script element for the JSONP request
-    const script = document.createElement("script");
-    script.src = `https://www.dailymotion.com/services/oembed/?url=${encodeURIComponent(
-      videoUrl
-    )}&format=json&maxwidth=${maxwidth}&maxheight=${maxheight}&callback=handleDailymotionResponse`;
-  
-    // Define a global callback function to handle the response
-    window.handleDailymotionResponse = (data) => {
-      if (data.html) {
-        // Create a div element to hold the Dailymotion video
-        const videoContainer = document.createElement("div");
-  
-        // Apply the videoClass to the videoContainer
-        videoContainer.className = `video-${videoCount} ${videoClass} custom-dailymotion`; // Add custom-dailymotion class
-  
-        // Set the HTML content of the videoContainer to the oEmbed HTML
-        videoContainer.innerHTML = data.html;
-  
-        // Update the video's width to be responsive
-        const videoElement = videoContainer.querySelector('iframe');
-        if (videoElement) {
-          videoElement.style.width = '100%'; // Set width to 100% for responsiveness
-  
-          // Conditionally add the 'autoplay' attribute
-          if (autoplayEnabled) {
-            videoElement.setAttribute('autoplay', 'autoplay');
-          }
-  
-          // Update the 'allow' attribute to include 'fullscreen' and 'picture-in-picture'
-          videoElement.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; muted');
-        }
-  
-        // Append the videoContainer to the provided container
-        container.appendChild(videoContainer);
-  
-        // Clean up the script element and callback function
-        document.body.removeChild(script);
-        delete window.handleDailymotionResponse;
-      }
-    };
-  
-    // Append the script element to the document to trigger the JSONP request
-    document.body.appendChild(script);
+  const extractDailymotionVideoId = (url) => {
+    const videoIdMatch = url.match(/\/(?:video|hub)\/([^_]+)/) || url.match(/(?:^|\/)([a-z0-9]+)(?:_[\w-]*)?$/i);
+    if (videoIdMatch && videoIdMatch[1]) {
+      return videoIdMatch[1];
+    }
+    throw new Error("Invalid Dailymotion video URL");
   };
   
+  const embedDailymotion = (video, container, videoClass) => {
+    const videoUrl = video.videoUrl;
+    const videoId = extractDailymotionVideoId(videoUrl);
+    const autoplayValue = video.autoplay ? '1' : '0';
+    const controlsValue = video.controls ? '1' : '0';
+    const fullscreenValue = video.fullscreen ? '1' : '0';
+  
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://www.dailymotion.com/embed/video/${videoId}?autoplay=${autoplayValue}&controls=${controlsValue}&fullscreen=${fullscreenValue}`;
+    iframe.width = video.width || 640;
+    iframe.height = video.height || 360;
+    iframe.frameBorder = "0";
+    iframe.allowFullscreen = true;
+  
+    iframe.className = videoClass;
+  
+    container.appendChild(iframe);
+  };
   
   
   
