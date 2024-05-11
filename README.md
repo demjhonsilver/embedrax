@@ -67,6 +67,13 @@ Major Changes:
 
 Minor Changes:
 
+ v1.2.0
+ - Fixed the videoClass issue for embedding Instagram clips.
+ - Added a demo site.
+   [Embedrax - Demo](https://demjhonsilver.github.io/embedrax-demo)
+
+
+
  v1.1.0
  - Added support for embedding Instagram clips.
  - Either video reels or video clips for Instagram.

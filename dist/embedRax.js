@@ -38,13 +38,6 @@
       throw new Error('Invalid Instagram video URL');
     }
   
-    // Define maxwidth and maxheight based on the video object's properties
-    const maxwidth = video.width || 640; // Default width if not provided
-    const maxheight = video.height || 360; // Default height if not provided
-  
-    // Check if autoplay should be enabled (true by default)
-    const autoplayEnabled = video.autoplay !== undefined ? video.autoplay : true;
-  
     // Check if the container element exists, create it if it doesn't
     let embedContainer = document.getElementById(container);
     if (!embedContainer) {
@@ -53,25 +46,35 @@
       document.body.appendChild(embedContainer);
     }
   
-    const playerDiv = document.createElement("div");
-    playerDiv.className = `video-${videoCount} ${videoClass}`;
+    // Check if the playerDiv for the Instagram video already exists
+    let playerDiv = document.querySelector(`.${videoClass}`);
+    if (!playerDiv) {
+      // Create the playerDiv containing the Instagram video with the specified videoClass
+      playerDiv = document.createElement("div");
+      playerDiv.className = `video-${videoCount} ${videoClass}`;
   
-    // Check if embed script already exists
+      // Append the playerDiv to the embedContainer
+      embedContainer.appendChild(playerDiv);
+    }
+  
+    // Create the blockquote element for Instagram embed
+    const blockquote = document.createElement('blockquote');
+    blockquote.setAttribute('class', 'instagram-media');
+    blockquote.setAttribute('data-instgrm-permalink', `https://www.instagram.com/p/${videoId}/`);
+    blockquote.setAttribute('data-instgrm-version', '13');
+  
+    const anchor = document.createElement('a');
+    anchor.setAttribute('href', videoUrl);
+    blockquote.appendChild(anchor);
+  
+    // Append the blockquote to the playerDiv
+    playerDiv.appendChild(blockquote);
+  
+    // Check if embed script already exists, if not, append it to the embedContainer
     if (!document.getElementById('instagramEmbedScript')) {
-      const blockquote = document.createElement('blockquote');
-      blockquote.setAttribute('class', 'instagram-media');
-      blockquote.setAttribute('data-instgrm-permalink', `https://www.instagram.com/p/${videoId}/`); // Update with the extracted video ID
-      blockquote.setAttribute('data-instgrm-version', '13');
-  
-      const anchor = document.createElement('a');
-      anchor.setAttribute('href', videoUrl);
-      blockquote.appendChild(anchor);
-  
-      embedContainer.appendChild(blockquote);
-  
       const script = document.createElement('script');
       script.setAttribute('async', '');
-      script.setAttribute('id', 'instagramEmbedScript'); // Set ID for future reference
+      script.setAttribute('id', 'instagramEmbedScript');
       script.setAttribute('src', '//www.instagram.com/embed.js');
       embedContainer.appendChild(script);
     }
